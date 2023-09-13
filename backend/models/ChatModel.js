@@ -21,12 +21,11 @@ const ChatSchema = new mongoose.Schema(
       type: ObjectId,
       ref: "Message",
     },
-    groupAdmin: [
+    groupAdmin:
       {
         type: ObjectId,
         ref: "User",
       },
-    ],
   },
   { timestamps: true }
 );

@@ -19,8 +19,6 @@ export const registerUser = asyncHandler(async (req, res) => {
     image,
   });
 
-  console.log(newUser);
-
   if (newUser) {
     const token = generateJwtTokenForUser(newUser._id);
     res.status(201).json({

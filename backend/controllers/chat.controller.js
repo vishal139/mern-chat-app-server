@@ -10,7 +10,6 @@ export const accessChat = asyncHandler(async (req, res) => {
     return res.status(400);
   }
 
-  console.log({ userId, myId: req.user._id });
 
   const chatPresent = await Chat.find({
     isGroupChat: false,
@@ -49,7 +48,6 @@ export const accessChat = asyncHandler(async (req, res) => {
 });
 export const getAllChat = asyncHandler(async (req, res) => {
   try {
-    console.log("hello world");
     const chats = await Chat.find({
       users: { $elemMatch: { $eq: req.user._id } },
     })
@@ -141,7 +139,7 @@ export const addToGroup = asyncHandler(async (req, res) => {
     else{
         res.json(groupPush);
     } 
- 
+
   } catch (error) {}
 });
 export const removeFromGroup = asyncHandler(async (req, res) => {
